@@ -34,10 +34,19 @@ Além dos dados educacionais, serão incorporados indicadores de desenvolvimento
 
 ## 1.3. Resumo dos Dados Utilizados
 
+Para este trabalho foram utilizadas duas fontes de dados, os dados de desempenho por escola no Saeb e uma base de dados socioeconômicos dos estados
+
 ## 1.3.1. Dados do Saeb
+
+Foram utilizados os resultados por escola do Saeb 2023, obtidos a partir do portal de acesso a informação do governo federal (https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/saeb).
+
+
+
+
 
 ## 1.3.2. Dados socioeconômicos dos estados
 
+Foram utilizados os dados do censo demográfico de 2010 realizado pelo IBGE, baixados a partir do site do Atlas do Desenvolvimento Humano no Brasil (https://www.atlasbrasil.org.br/acervo/biblioteca)
 
 # 2. Carga dos dados
 
