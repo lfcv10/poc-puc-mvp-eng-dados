@@ -40,7 +40,7 @@ Para este trabalho foram utilizadas duas fontes de dados, os dados de desempenho
 
 Foram utilizados os resultados por escola do Saeb 2023, obtidos a partir do portal de acesso a informação do governo federal (https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/saeb).
 
-
+A explicação de cada dado pode ser encontrada na aba Saeb Estado 2023 do [Catalogo de Dados](/Catalogo%20de%20Dados.xlsx)
 
 
 
