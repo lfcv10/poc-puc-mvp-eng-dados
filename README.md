@@ -18,7 +18,7 @@ Periodicidade: É aplicado a cada dois anos, geralmente envolvendo a rede públi
 
 Público-alvo: Abrange estudantes de diferentes etapas do ensino, com foco tradicional no 5º e 9º ano do Ensino Fundamental e no 3º ano do Ensino Médio.
 
-O objetivo deste trabalho será analisar os dados do Saeb por escola no ano de 2023 (último com microdados disponíveis), buscando identificar padrões de desempenho, diferenças entre redes de ensino e relações entre características das escolas e seus resultados educacionais. O foco das análises será 
+O objetivo deste trabalho será analisar os dados do Saeb por escola no ano de 2023 (último com microdados disponíveis), buscando identificar padrões de desempenho, diferenças entre redes de ensino e relações entre características das escolas e seus resultados educacionais. O foco das análises será nos dados do 9º ano do ensino fundamental com o objetivo de avaliar a qualidade do ensino básico.
 
 Além dos dados educacionais, serão incorporados indicadores de desenvolvimento dos estados brasileiros, permitindo investigar se as diferenças observadas no desempenho escolar estão associadas ao contexto socioeconômico em que as escolas estão inseridas.
 
@@ -46,7 +46,9 @@ A explicação de cada dado pode ser encontrada na aba Saeb Estado 2023 do [Cata
 
 ## 1.3.2. Dados socioeconômicos dos estados
 
-Foram utilizados os dados do censo demográfico de 2010 realizado pelo IBGE, baixados a partir do site do Atlas do Desenvolvimento Humano no Brasil (https://www.atlasbrasil.org.br/acervo/biblioteca)
+Foram utilizados os dados do censo demográfico de 1991 a 2010 realizado pelo IBGE, baixados a partir do site do Atlas do Desenvolvimento Humano no Brasil (https://www.atlasbrasil.org.br/acervo/biblioteca)
+
+A explicação de cada dado pode ser encontrada na aba Censo IBGE do [Catalogo de Dados](/Catalogo%20de%20Dados.xlsx)
 
 # 2. Carga dos dados
 
