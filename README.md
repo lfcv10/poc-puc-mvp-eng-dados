@@ -28,7 +28,7 @@ Além dos dados educacionais, serão incorporados indicadores de desenvolvimento
 1) Quais estados apresentam os melhores e piores desempenhos médios no SAEB?
 2) Existem diferenças relevantes de desempenho entre escolas públicas e privadas?
 3) Qual a diferença de desempenho das escolas de diferentes niveis socioeconômicos?
-4) Quais estados entregam um desempenho educacional acima do esperado para seu nível de desenvolvimento?
+4) Quais estados entregam um desempenho educacional abaixo do esperado para seu nível de desenvolvimento?
 5) Existem estados que se destacam por apresentar bons resultados educacionais mesmo possuindo indicadores socioeconômicos inferiores?
 
 
