@@ -52,6 +52,8 @@ A explicação de cada dado pode ser encontrada na aba Censo IBGE do [Catalogo d
 
 # 2. Carga dos dados
 
+A carga de dados foi realizada no Databricks via carga manual. Para permitir isso foi utilizado o [notebook de preparação](Workspace/01%20%20-%20preparação.ipynb)
+
 
 # 3. Modelagem e Catálogo de Dados
 
