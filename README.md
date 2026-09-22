@@ -52,7 +52,29 @@ A explicação de cada dado pode ser encontrada na aba Censo IBGE do [Catalogo d
 
 # 2. Carga dos dados
 
-A carga de dados foi realizada no Databricks via carga manual. Para permitir isso foi utilizado o [notebook de preparação](Workspace/01%20%20-%20preparação.ipynb)
+
+
+A carga de dados foi realizada no Databricks via carga manual. Para permitir isso foram utilizados dois notebooks:
+
+O primeiro foi o [notebook de preparação](Workspace/01%20%20-%20preparação.ipynb). Nele, foram criados todos os schemas utilizados nesse trabalho, que são:
+
+1) staging: schema criado para servir de repositório dos arquivos com os dados originais
+2) bronze: criado com o intuito disponibilizar os dados dos arquivos contidos no schema de staging em tabelas.
+3) silver: criado com o intuito de disponibilizar tabelas com dados padronizados, limpos e organizados. 
+4) gold: Camada final com tabelas criadas com objetivo criar agregações e métricas para responder as perguntas
+
+A imagem abaixo mostra as 4 camadas criadas dentro do Databricks:
+
+
+O segundo notebook criado foi o [notebook de download](Workspace/02%20-%20download.ipynb). Nele, foram criados dois volumes, que são:
+
+1) dados_saeb: volume para os dados do exame saeb. Upload dos dados feito de forma manual com um arquivo csv
+2) dados_estados: volume para os dados socioeconômicos dos estados. Upload dos dados feito de forma manual com um arquivo excel
+
+A imagem abaixo mostra o processo realizado:
+
+![Teste](images/01-imagem_catalogo_dados.png)
+
 
 
 # 3. Modelagem e Catálogo de Dados
