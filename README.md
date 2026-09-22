@@ -70,14 +70,14 @@ A imagem abaixo mostra as 4 camadas criadas dentro do Databricks:
 
 O segundo notebook criado foi o [notebook de download](Workspace/02%20-%20download.ipynb). Nele, foram criados dois volumes, que são:
 
-1) dados_saeb: volume para os dados do exame saeb. Upload dos dados feito de forma manual com um arquivo csv
-2) dados_estados: volume para os dados socioeconômicos dos estados. Upload dos dados feito de forma manual com dois arquivos excel (atributos_estados.xlsx e censo_total_1991_2010.xlsx)
+1) dados_saeb: volume para os dados do exame saeb (explicados na etapa 1.3.1). Upload dos dados feito de forma manual com um arquivo csv
+2) dados_estados: volume para os dados socioeconômicos dos estados e atributos(explicados na etapas [1.3.2](#132-dados-socioeconômicos-dos-estados) e [1.3.3](#133-tabela-dimensão-de-estados), respectivamente). Upload dos dados feito de forma manual com dois arquivos excel (atributos_estados.xlsx e censo_total_1991_2010.xlsx)
 
 A imagem abaixo mostra o processo realizado:
 
 ![upload_dados](images/02-upload-dados.png)
 
-E os resultados, 
+E os resultados, com os três arquivos utilizados dentro dos volumes criados.
 
 ![upload_dados2](images/03-mostrando-volumes-dados-estados.png)
 ![upload_dados3](images/04-mostrando-volumes-dados-saeb.png)
