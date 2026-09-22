@@ -34,24 +34,25 @@ Além dos dados educacionais, serão incorporados indicadores de desenvolvimento
 
 ## 1.3. Resumo dos Dados Utilizados
 
-Para este trabalho foram utilizadas duas fontes de dados, os dados de desempenho por escola no Saeb e uma base de dados socioeconômicos dos estados
+Para este trabalho foram utilizadas três fontes de dados, os dados de desempenho por escola no Saeb, uma base de dados socioeconômicos dos estados e uma terceira para servir de dimensão
 
 ## 1.3.1. Dados do Saeb
 
 Foram utilizados os resultados por escola do Saeb 2023, obtidos a partir do portal de acesso a informação do governo federal (https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/saeb).
 
-A explicação de cada dado pode ser encontrada na aba Saeb Estado 2023 do [Catalogo de Dados](/Catalogo%20de%20Dados.xlsx)
-
-
+A base é um arquivo csv com o resultado escola a escola para as notas de cada escola obtidas nas disciplinas de português e matemática para o 5º e 9º ano do ensino fundamental, assim como para o ano de conclusão do ensino médio. 
 
 ## 1.3.2. Dados socioeconômicos dos estados
 
 Foram utilizados os dados do censo demográfico de 1991 a 2010 realizado pelo IBGE, baixados a partir do site do Atlas do Desenvolvimento Humano no Brasil (https://www.atlasbrasil.org.br/acervo/biblioteca)
 
-A explicação de cada dado pode ser encontrada na aba Censo IBGE do [Catalogo de Dados](/Catalogo%20de%20Dados.xlsx)
+
+## 1.3.3. Tabela dimensão de estados
+
+Tabela gerada com os estados brasileiros + distrito federal com as regiões em que cada estado está contido. Criada para servir de tabela dimensão que conecta as outras duas bases de dados.
+
 
 # 2. Carga dos dados
-
 
 
 A carga de dados foi realizada no Databricks via carga manual. Para permitir isso foram utilizados dois notebooks:
@@ -65,16 +66,21 @@ O primeiro foi o [notebook de preparação](Workspace/01%20%20-%20preparação.i
 
 A imagem abaixo mostra as 4 camadas criadas dentro do Databricks:
 
+![catalogo](images/01-imagem_catalogo_dados.png)
 
 O segundo notebook criado foi o [notebook de download](Workspace/02%20-%20download.ipynb). Nele, foram criados dois volumes, que são:
 
 1) dados_saeb: volume para os dados do exame saeb. Upload dos dados feito de forma manual com um arquivo csv
-2) dados_estados: volume para os dados socioeconômicos dos estados. Upload dos dados feito de forma manual com um arquivo excel
+2) dados_estados: volume para os dados socioeconômicos dos estados. Upload dos dados feito de forma manual com dois arquivos excel (atributos_estados.xlsx e censo_total_1991_2010.xlsx)
 
 A imagem abaixo mostra o processo realizado:
 
-![Teste](images/01-imagem_catalogo_dados.png)
+![upload_dados](images/02-upload-dados.png)
 
+E os resultados, 
+
+![upload_dados2](images/03-mostrando-volumes-dados-estados.png)
+![upload_dados3](images/04-mostrando-volumes-dados-saeb.png)
 
 
 # 3. Modelagem e Catálogo de Dados
