@@ -42,9 +42,15 @@ Foram utilizados os resultados por escola do Saeb 2023, obtidos a partir do port
 
 A base é um arquivo csv com o resultado escola a escola para as notas de cada escola obtidas nas disciplinas de português e matemática para o 5º e 9º ano do ensino fundamental, assim como para o ano de conclusão do ensino médio. 
 
+Os detalhes dos dados disponíveis podem ser encontrado na etapa
+
+
 ## 1.3.2. Dados socioeconômicos dos estados
 
-Foram utilizados os dados do censo demográfico de 1991 a 2010 realizado pelo IBGE, baixados a partir do site do Atlas do Desenvolvimento Humano no Brasil (https://www.atlasbrasil.org.br/acervo/biblioteca)
+Foram utilizados os dados do censo demográfico de 1991 a 2010 realizado pelo IBGE, baixados a partir do site do Atlas do Desenvolvimento Humano no Brasil (https://www.atlasbrasil.org.br/acervo/biblioteca). 
+Dentro dessa base há diversos indicadores socioeconômicos como IDHM,  por estado, gerados por ano de realização do censo, renda per capita, entre outros. 
+
+Os detalhes dos dados disponíveis podem ser encontrado na etapa
 
 
 ## 1.3.3. Tabela dimensão de estados
@@ -70,7 +76,7 @@ A imagem abaixo mostra as 4 camadas criadas dentro do Databricks:
 
 O segundo notebook criado foi o [notebook de download](Workspace/02%20-%20download.ipynb). Nele, foram criados dois volumes, que são:
 
-1) dados_saeb: volume para os dados do exame saeb (explicados na etapa 1.3.1). Upload dos dados feito de forma manual com um arquivo csv
+1) dados_saeb: volume para os dados do exame saeb (explicados na etapa [1.3.1](#131-dados-do-saeb)). Upload dos dados feito de forma manual com um arquivo csv
 2) dados_estados: volume para os dados socioeconômicos dos estados e atributos(explicados na etapas [1.3.2](#132-dados-socioeconômicos-dos-estados) e [1.3.3](#133-tabela-dimensão-de-estados), respectivamente). Upload dos dados feito de forma manual com dois arquivos excel (atributos_estados.xlsx e censo_total_1991_2010.xlsx)
 
 A imagem abaixo mostra o processo realizado:
@@ -84,6 +90,43 @@ E os resultados, com os três arquivos utilizados dentro dos volumes criados.
 
 
 # 3. Modelagem e Catálogo de Dados
+
+## 3.1. Modelo de dados
+
+O modelo de dados utilizado foi separado em três camadas, bronze, silver e gold. Um esquema com as tabelas geradas pode ser visto abaixo, assim como uma visualização dessas tabelas dentro do Databricks. Em seguida, serão explicadas a função de cada tabela e mostrados os catálogos de dados associadas a cada uma.
+
+![modelodados1](images/05-esquema-modelagem-dados.png)
+![modelodados2](images/06-camdas-geradas-databricks.png)
+
+
+### 3.2.1. Camada bronze
+
+Na camada bronze estão disponibilizadas três tabelas:
+
+
+1) resultados_saeb: Dado bruto com os resultados do saeb por escola gerados a partir dos dados explicados na seção [1.3.1](#131-dados-do-saeb)
+
+2) dados_socioeconomicos_estados: Dado bruto dos indicadores socioeconômicos dos estados gerado a partir dos dados explicados na seção [1.3.2](#132-dados-socioeconômicos-dos-estados)
+
+3) atributos_estados: Dado bruto da tabela dimensão com os estados brasileiros gerado a partir dos dados explicados na seção  [1.3.3](#133-tabela-dimensão-de-estados)
+
+### 3.2.2. Camada silver
+
+### 3.2.3. Camada gold
+
+
+## 3.3. Catálogo de Dados
+
+### 3.3.1. Camada bronze
+
+### 3.3.2. Camada silver
+
+# 3.3.3. Camada gold
+
+
+## 3.4. Esquema
+
+
 
 # 4. Pipeline de Dados
 
