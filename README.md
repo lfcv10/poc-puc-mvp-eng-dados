@@ -141,7 +141,7 @@ Ela é gerada a partir da junção da tabela da camada silver resultados_saeb co
 
 ## 3.3. Catálogo de Dados
 
-Os dados de todas tabelas foram catalogados por dentro do próprio Databricks usando a funcionalidade disponível. Para facilitar a visualização foi criado i [notebook de visualização de catalogos](Workspace/)
+Os dados de todas tabelas foram catalogados por dentro do próprio Databricks usando a funcionalidade disponível. Para facilitar a visualização foi criado i [notebook de visualização de catalogos](Workspace/06%20-%20visualização%20catalogos.ipynb)
 
 
 
