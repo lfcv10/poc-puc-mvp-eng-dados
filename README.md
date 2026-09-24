@@ -96,6 +96,9 @@ E os resultados, com os três arquivos utilizados dentro dos volumes criados.
 O modelo de dados utilizado foi separado em três camadas, bronze, silver e gold. Um esquema com as tabelas geradas pode ser visto abaixo, assim como uma visualização dessas tabelas dentro do Databricks. Em seguida, serão explicadas a função de cada tabela e mostrados os catálogos de dados associadas a cada uma.
 
 ![modelodados1](images/05-esquema-modelagem-dados.png)
+
+Visualização no Databricks:
+
 ![modelodados2](images/06-camdas-geradas-databricks.png)
 
 
@@ -112,12 +115,41 @@ Na camada bronze estão disponibilizadas três tabelas:
 
 ### 3.2.2. Camada silver
 
+Na camada silver só há uma tabela chamada resultados_saeb. Essa tabela foi criada para tratar a base resultados_saeb da camada bronze. Sua principal função é deixar a tabela mais palatável para o usuário final, com mudança de códigos númericos
+
+ex: para uma coluna informando se a cidade é capital ou interior ao invés de utilizar 1 para Capital e 0 para Interior já entrega ao usuário os valores Capital e Interior.
+
+Um maior detalhamento sobre as tratativas realizadas nessa camada será dado na etapa [4. Pipeline de Dados](#4-pipeline-de-dados)
+
 ### 3.2.3. Camada gold
+
+Na camada gold há 3 tabelas, criadas com o intuito de responder as questões apresentadas na etapa [1.2. Perguntas a serem respondidas](#12-perguntas-a-serem-respondidas). Elas são:
+
+
+
+**1) resultado_saeb_por_estado_vs_idhm**: Tabela criada para responder as perguntas 1, 4 e 5. Esta tabela contém dados sobre os resultados do sistema educacional brasileiro, conforme avaliados pelo SAEB para o 9º ano do ensino fundamental, juntamente com o Índice de Desenvolvimento Humano Municipal (IDHM) de cada estado do Brasil. Ela reúne diversas métricas, como pontuações médias nas avaliações, classificações (rankings) com base nessas pontuações e enquadramentos por quartis.
+
+Ela é gerada a partir da junção da tabela da camada silver resultados_saeb com a tabela de IDHM, após realizar um agrupamento por estado na tabela resultados_saeb.
+
+**2) resultado_saeb_por_nivel_socioeconomico**: A tabela contém dados sobre o desempenho de escolas categorizadas por níveis socioeconômicos. Ela inclui métricas como o número de escolas, níveis de proficiência em língua portuguesa e matemática para estudantes do 9º ano, bem como médias de pontuação e distribuições entre diferentes categorias de proficiência. Esses dados podem ser úteis para analisar resultados educacionais relacionados ao status socioeconômico, avaliar a efetividade de políticas educacionais e identificar áreas de melhoria em grupos socioeconômicos específicos.
+
+
+**3) resultado_saeb_por_tipo_de_escola**: Esta tabela contém dados sobre o desempenho escolar diferenciado por tipo de escola, especificamente pública e privada. Ela inclui o número de escolas e as pontuações médias em língua portuguesa e matemática para o 9º ano. Possíveis casos de uso incluem analisar o desempenho educacional por tipo de escola e estudar o impacto da gestão escolar nos resultados dos estudantes.
+
+
 
 
 ## 3.3. Catálogo de Dados
 
+Os dados de todas tabelas foram catalogados por dentro do próprio Databricks usando a funcionalidade disponível. Para facilitar a visualização foi criado i [notebook de visualização de catalogos](Workspace/)
+
+
+
 ### 3.3.1. Camada bronze
+
+#### 3.3.1.2. Tabela atributos_estados
+
+
 
 ### 3.3.2. Camada silver
 
