@@ -267,7 +267,7 @@ Nesta base foi feito um filtro para somente pegar os indicadores do último cens
 
 ### 4.2.2. Geração da tabela gold.resultado_saeb_por_tipo_de_escola
 
-Para gerar essa tabela foi utilizada a tabela gerada na etapa [4.2.1..1](#4211-filtragem-da-base-silverdf_saeb). Foi realizado um agrupamento pelo tipo de escola (pública ou privada), a partir da coluna [escola_publica] e calculadas médias de português e matemática
+Para gerar essa tabela foi utilizada a tabela gerada na etapa [4.2.1.1](#4211-filtragem-da-base-silverdf_saeb). Foi realizado um agrupamento pelo tipo de escola (pública ou privada), a partir da coluna [escola_publica] e calculadas médias de português e matemática
 
 ### 4.2.3. Geração da tabela gold.resultado_saeb_por_nivel_socioeconomico
 
@@ -410,7 +410,7 @@ A tabela com o resumo pode ser vista abaixo:
 
 ### 5.3.1. Quais estados apresentam os melhores e piores desempenhos médios no SAEB?
 
-A partir da tabela gerada acima, os estados com melhores desempenhos são Ceará, Paraná, Goiás e Santa Catarina
+A partir da tabela gerada acima,  é possível ver o ranking de melhores desempenhos na coluna "Ranking SAEB". Os estados com melhores desempenhos são Ceará, Paraná, Goiás e Santa Catarina
 
 
  ### 5.3.2. Quais estados entregam um desempenho educacional abaixo do esperado para seu nível de desenvolvimento?
