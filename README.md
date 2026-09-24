@@ -141,20 +141,11 @@ Ela é gerada a partir da junção da tabela da camada silver resultados_saeb co
 
 ## 3.3. Catálogo de Dados
 
-Os dados de todas tabelas foram catalogados por dentro do próprio Databricks usando a funcionalidade disponível. Para facilitar a visualização foi criado i [notebook de visualização de catalogos](Workspace/06%20-%20visualização%20catalogos.ipynb)
+Os dados de todas tabelas foram catalogados por dentro do próprio Databricks usando a funcionalidade disponível. Para facilitar a visualização foi criado o [notebook de visualização de catalogos](Workspace/06%20-%20visualização%20catalogos.ipynb). Dentro dele há uma célula com output para cada uma das tabelas apresentadas acima. Para mostrar a utilização da funcionalidade do databricks podem ser vistos dois prints, com exemplo de como ficaram as telas:
 
+![catalogo_dados_1](images/07%20-%20print%20catalogo%20atributos_estados.png)
 
-
-### 3.3.1. Camada bronze
-
-#### 3.3.1.2. Tabela atributos_estados
-
-
-
-### 3.3.2. Camada silver
-
-# 3.3.3. Camada gold
-
+![catalogo_dados_2](images/08%20-%20print%20catalogo%20dados_socioeconomicos_estados-1.png)
 
 ## 3.4. Esquema
 
