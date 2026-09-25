@@ -34,7 +34,7 @@ Além dos dados educacionais, serão incorporados indicadores de desenvolvimento
 
 ## 1.3. Resumo dos Dados Utilizados
 
-Para este trabalho foram utilizadas três fontes de dados, os dados de desempenho por escola no Saeb, uma base de dados socioeconômicos dos estados e uma terceira para servir de dimensão
+Para este trabalho foram utilizadas três fontes de dados, os dados de desempenho por escola no Saeb, uma base de dados socioeconômicos dos estados e uma terceira para servir de dimensão e conectar as bases.
 
 ## 1.3.1. Dados do Saeb
 
@@ -42,7 +42,7 @@ Foram utilizados os resultados por escola do Saeb 2023, obtidos a partir do port
 
 A base é um arquivo csv com o resultado escola a escola para as notas de cada escola obtidas nas disciplinas de português e matemática para o 5º e 9º ano do ensino fundamental, assim como para o ano de conclusão do ensino médio. 
 
-Os detalhes dos dados disponíveis podem ser encontrado na etapa
+Os detalhes dos dados disponíveis podem ser encontrado na etapa [3.3. Catálogo de Dados](#33-catálogo-de-dados).
 
 
 ## 1.3.2. Dados socioeconômicos dos estados
@@ -50,7 +50,7 @@ Os detalhes dos dados disponíveis podem ser encontrado na etapa
 Foram utilizados os dados do censo demográfico de 1991 a 2010 realizado pelo IBGE, baixados a partir do site do Atlas do Desenvolvimento Humano no Brasil (https://www.atlasbrasil.org.br/acervo/biblioteca). 
 Dentro dessa base há diversos indicadores socioeconômicos como IDHM,  por estado, gerados por ano de realização do censo, renda per capita, entre outros. 
 
-Os detalhes dos dados disponíveis podem ser encontrado na etapa
+Os detalhes dos dados disponíveis podem ser encontrado na etapa [3.3. Catálogo de Dados](#33-catálogo-de-dados).
 
 
 ## 1.3.3. Tabela dimensão de estados
@@ -115,7 +115,7 @@ Na camada bronze estão disponibilizadas três tabelas:
 
 ### 3.2.2. Camada silver
 
-Na camada silver só há uma tabela chamada resultados_saeb. Essa tabela foi criada para tratar a base resultados_saeb da camada bronze. Sua principal função é deixar a tabela mais palatável para o usuário final, com mudança de códigos númericos
+Na camada silver só há uma tabela chamada resultados_saeb. Essa tabela foi criada para tratar a base resultados_saeb da camada bronze. Sua principal função é deixar a tabela mais palatável para o usuário final, com mudança de códigos númericos para valores mais facilmente entendidos pelos usuários, entre outras tratativas.
 
 ex: para uma coluna informando se a cidade é capital ou interior ao invés de utilizar 1 para Capital e 0 para Interior já entrega ao usuário os valores Capital e Interior.
 
@@ -141,7 +141,7 @@ Ela é gerada a partir da junção da tabela da camada silver resultados_saeb co
 
 ## 3.3. Catálogo de Dados
 
-Os dados de todas tabelas foram catalogados por dentro do próprio Databricks usando a funcionalidade disponível. Para facilitar a visualização foi criado o [notebook de visualização de catalogos](Workspace/06%20-%20visualização%20catalogos.ipynb). Dentro dele há uma célula com output para cada uma das tabelas apresentadas acima. Para mostrar a utilização da funcionalidade do databricks podem ser vistos dois prints, com exemplo de como ficaram as telas:
+Os dados de todas tabelas foram catalogados por dentro do próprio Databricks usando a funcionalidade disponível. Para facilitar a visualização foi criado o [notebook de visualização de catalogos](Workspace/06%20-%20visualização%20catalogos.ipynb). Dentro dele há uma célula com output para cada uma das tabelas apresentadas acima, apresentando informações como tipo de dados e comentários explicando do que se trata cada coluna. Para mostrar a utilização da funcionalidade do databricks podem ser vistos dois prints, com exemplo de como ficaram as telas. Para o conjunto completo acesse o notebook.
 
 ![catalogo_dados_1](images/07%20-%20print%20catalogo%20atributos_estados.png)
 
@@ -151,7 +151,7 @@ Os dados de todas tabelas foram catalogados por dentro do próprio Databricks us
 
 O esquema de dados pode ser visto na imagem abaixo.
 
-A tabela bronze.atributos_estados atua como referência central para o relacionamento por estado. Ela conecta o Estado utilizado no SAEB aos dados socioeconômicos, que utilizam UFN como chave de relacionamento, além de servir de referência para as análises agregadas na camada Gold.
+A tabela bronze.atributos_estados atua como referência central para o relacionamento, usando a coluna Estado como chave primária. Ela conecta o ESTADO utilizado no SAEB aos dados socioeconômicos, que utilizam UFN como chave de relacionamento, além de servir de referência para as análises agregadas na camada Gold.
 
 
 ![esquema_dados](images/11%20-%20esquema%20de%20dados.png)
@@ -180,7 +180,7 @@ Seu objetivo é basicamente ler os arquivos brutos explicados na sessão [2. Car
 
 ## 4.2. Camada silver
 
-Na camada silver foi gerada a tabelas resultados_saeb. Os principais tratamentos realizados são:
+Na camada silver foi gerada a tabelas resultados_saeb. Os principais tratamentos realizados foram:
 
 
 1) Criar coluna ESTADO com o nome do estado, não um código, com o objetivo de facilitar o trabalho dos usuários finais. O de para de código para o nome do estado está no comentário da coluna na camada bronze
@@ -248,28 +248,28 @@ Ao longo do código há diversas checagens após realização de cada uma das at
 
 ![qualidade_dados_silver](images/12%20-%20exemplo%20qualidade%20dos%20dados.png)
 
-## 4.2. Camada gold
+## 4.3. Camada gold
 
 O pipeline da camada gold foi separado em algumas etapas dentro do notebook. Uma primeira etapa mais geral e compartilhada por todas as três tabelas geradas será detalhada, em seguida, os tratamentos específicos de cada base. Da mesma forma que para a camada silver foram gerados ao longo do código etapas de qualidade de dados.
 
-### 4.2.1. Filtragens compartilhadas das tabelas
+### 4.3.1. Filtragens compartilhadas das tabelas
 
 Foi definido para a análise a avaliação dos dados do último SAEB para o 9º ano do ensino fundamental, para isso foram feitos os filtros:
 
-#### 4.2.1.1. Filtragem da base silver.df_saeb
+#### 4.3.1.1. Filtragem da base silver.df_saeb
 
 1) Filtrar a base com o objetivo de utilizar somente o último SAEB para geração das tabelas da camada gold. Na base original só há o resultado do SAEB de 2023, mas esse filtro deixará a camada gold preparada para analisar o resultado de novos SAEBs, caso seja feito o upload desses dados
 2) Filtrar somente escolas que foram avaliadas no 9º ano do ensino fundamental
 
-#### 4.2.1.2. Filtragem da base bronze.dados_socioeconomicos
+#### 4.3.1.2. Filtragem da base bronze.dados_socioeconomicos
 
-Nesta base foi feito um filtro para somente pegar os indicadores do último censo do IBGE disponível
+Nesta base foi feito um filtro para somente pegar os indicadores do último censo do IBGE disponível.
 
-### 4.2.2. Geração da tabela gold.resultado_saeb_por_tipo_de_escola
+### 4.3.2. Geração da tabela gold.resultado_saeb_por_tipo_de_escola
 
-Para gerar essa tabela foi utilizada a tabela gerada na etapa [4.2.1.1](#4211-filtragem-da-base-silverdf_saeb). Foi realizado um agrupamento pelo tipo de escola (pública ou privada), a partir da coluna [escola_publica] e calculadas médias de português e matemática
+Para gerar essa tabela foi utilizada a tabela gerada na etapa [4.3.1.1](#4211-filtragem-da-base-silverdf_saeb). Foi realizado um agrupamento pelo tipo de escola (pública ou privada), a partir da coluna [escola_publica] e calculadas médias de português e matemática.
 
-### 4.2.3. Geração da tabela gold.resultado_saeb_por_nivel_socioeconomico
+### 4.3.3. Geração da tabela gold.resultado_saeb_por_nivel_socioeconomico
 
 
 
@@ -286,7 +286,7 @@ Para fazer essa avaliação, foram adotadas duas abordagens a serem geradas em u
 
 2) Para aprofundar a análise, foram calculados os percentuais de escolas em cada faixa de proficiência — Abaixo do Básico, Básico, Adequado e Avançado — por nível socioeconômico. As quatro categorias totalizam 100% das escolas de cada grupo, permitindo analisar não apenas a média, mas também como as escolas se distribuem entre as diferentes faixas de desempenho. O mesmo foi realizado para matemática
 
-### 4.2.4. Geração da tabela gold.resultado_saeb_por_estado_vs_idhm
+### 4.3.4. Geração da tabela gold.resultado_saeb_por_estado_vs_idhm
 
 Essa tabela foi gerada para responder as seguintes perguntas:
 
@@ -295,7 +295,7 @@ Essa tabela foi gerada para responder as seguintes perguntas:
 5) Existem estados que se destacam por apresentar bons resultados educacionais mesmo possuindo indicadores socioeconômicos inferiores?
 
 
-Para facilitar a resposta a esse tipo de perguntas é necessário gerar uma tabela unificada com os desempenhos médios por estado no SAEB e com os indicadores socioeconômicos por estado. Para isso, os seguintes passos foram realizados:
+Para facilitar a resposta a esse tipo de perguntas é necessário gerar uma tabela unificada com os desempenhos médios por estado no SAEB com os indicadores socioeconômicos por estado. Para isso, os seguintes passos foram realizados:
 
 1) Agrupamento dos resultados do saeb por estado, calculando a média para português e matemática
 
@@ -343,6 +343,7 @@ A etapa de análise de dados será feita explicando cada uma das perguntas em or
 
 **Conclusão:** Como só há escolas públicas na base, não é possível avaliar o resultado entre públicas e privadas, entretanto, se no futuro forem adicionadas, será gerada uma tabela com essa informação
 
+OBS: Para garantir que isso não foi um erro de dentro do [notebook silver](Workspace/04%20-%20silver.ipynb) foi verificado na etapa 1.3.1. que na base completa realmente só haviam escolas públicas, corroborando essa resposta e que não foi um erro de tratamento.
 ## 5.2. Qual a diferença de desempenho das escolas de diferentes niveis socioeconômicos?
 
 A tabela com o resumo pode ser vista abaixo:
@@ -364,7 +365,7 @@ A tabela com o resumo pode ser vista abaixo:
 - somente o **nível 7**, com maior escolaridade parental e infraestrutura **apresentou um nível adequado**.
 
 2) **Avaliando as médias**, é possível identificar, excluindo o nível 1, que apresenta uma amostra pequena (somente 23 escolas) que:
--  há uma **clara correlação entre maior nível socioeconômico e maior notas do SAEB**
+-  há uma **clara correlação entre maior nível socioeconômico e maiores notas no SAEB**
 
 2) Entretanto, Apesar de **6 dos 7 níveis apresentarem nota média**  para português e matemática no nível básico, eles **estão em faixas muito diferentes dessa escala**, com:
 -  o nível 2 estando 2 pontos acima do corte inferior do nível básico ( média 227 vs corte 225)
@@ -408,12 +409,18 @@ A tabela com o resumo pode ser vista abaixo:
 | Amapá | 236,26 | 228,68 | 232,47 | 0,708 | 25 | 12 | 4 | 2 | 2 | Abaixo do esperado |
 | Roraima | 221,76 | 220,21 | 220,98 | 0,707 | 27 | 13 | 4 | 2 | 2 | Abaixo do esperado |
 
+
+
+
 ### 5.3.1. Quais estados apresentam os melhores e piores desempenhos médios no SAEB?
 
 A partir da tabela gerada acima,  é possível ver o ranking de melhores desempenhos na coluna "Ranking SAEB". Os estados com melhores desempenhos são Ceará, Paraná, Goiás e Santa Catarina
 
 
  ### 5.3.2. Quais estados entregam um desempenho educacional abaixo do esperado para seu nível de desenvolvimento?
+
+ ![resultado_melhores_desempenhos](images/13%20-%20grafico%20distribuicao%20estados.png)
+
 
 Tem dois estados que apresentam resultados abaixo do esperado:
 - O Amapá, que está em 12º no ranking de IDHM, mas na 25º posição no SAEB
