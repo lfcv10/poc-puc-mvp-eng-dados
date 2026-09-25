@@ -439,19 +439,19 @@ OBS: Foi também calculada a correlação entre IDHM e a nota do SAEB, encontran
 
 # 6. Autoavaliação
 
-De forma geral, acredito que as perguntas levantadas no início do trabalho puderem ser respondidas, menos a questão em relação a escolas públicas e privadas, que por não ter dados de escolas privadas não foi possível responder.
+De forma geral, acredito que as perguntas levantadas no início do trabalho foram respondidas, menos a questão em relação a escolas públicas e privadas, por não ter dados de escolas privadas.
 
 Em relação ao trabalho, entendo que alguns pontos poderiam ter sido aprofundados e construídos de forma mais robusta, como:
 
 
 Melhorias no pipeline:
 1) Ter uma forma de carga de dados mais automatizada, com conexão direta com dados do IBGE e Ministerío da Educação via API. Entretanto, entendo que isso não era primordial pois não são dados recorrentes. O SAEB é uma avaliação bianual e  censo do IBGE a cada 10 anos, não justificando uma carga de dados automatizada.
-2) Poderia ter sido feito a criação de um job ou pipeline para organizar a execução dos notebooks e automatizar esse processo.
+2) Poderia ter sido feito a criação de um job ou pipeline para organizar a execução dos notebooks e automatizar a execução.
 
 
 
 Outras perguntas a serem respondidas:
 1) A análise se focou muito no 9º ano do ensino fundamental, poderiam ter sido feitas análises para o 5º ano do ensino fundamental e concluintes do ensino médio.
-2) Além disso, poderiam ter sido feitos estudos analisando a performance ao longo do tempo com resultados de diversos Saebs para avaliar esse impacto no tempo.
+2) Além disso, poderiam ter sido feitos estudos analisando a performance ao longo do tempo com resultados de diversos Saebs para avaliar se está havendo evolução.
 3) Poderiam também ter sido usados outros indicadores socioeconômicos para realização da análise e não somente o IDHM.
 4) Por último, como se trata de um assunto muito complexo um só indicador não explicará os resultados, sendo esse um foco de estudo de uma grande quantidade de pesquisadores.
